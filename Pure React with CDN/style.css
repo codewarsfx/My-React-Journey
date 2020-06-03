@@ -1,0 +1,13 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+  max-width: 500px;
+}
+li {
+  font-size: 32px;
+  padding: 20px 10px;
+  color: #444;
+}
+li:nth-child(2n) {
+  background-color: #999;
+}
