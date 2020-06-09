@@ -1,14 +1,19 @@
 //create a list component which changes with props values
 import React from "react";
-import ReactDOM from "react-dom";
-import { list } from "./list";
+import ReactDom from "react-dom";
+import List from "./list";
 
-const app = () => {
-  return React.createElement("ul", {}, [
-    React.createElement(list, { name: "chidera ", occupation: "doctor" }),
-    React.createElement(list, { name: "bola", occupation: "farmer" }),
-    React.createElement(list, { name: "linda", occupation: "nurse" }),
-    React.createElement(list, { name: "shola", occupation: "lawyer" }),
-  ]);
+const App = () => {
+  // return React.createElement("ul", {}, [
+  //   React.createElement(list, { name: "chidera", DOB: 1999 }),
+  //   React.createElement(list, { name: "joan", DOB: 2000 }),
+  //   React.createElement(list, { name: "Sarah", DOB: 1909 }),
+  // ]);
+  return (
+    <div>
+      <List />
+    </div>
+  );
 };
-ReactDOM.render(React.createElement(app), document.getElementById("target"));
+
+ReactDom.render(<App />, document.getElementById("target"));
