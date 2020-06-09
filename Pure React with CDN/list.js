@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { ANIMALS } from "@frontendmasters/pet";
+import UseDropdown from "../useDropdown";
 
 export default function Search() {
   const [location, updateState] = useState("seattle LA");
-  const [animals, updateAnimal] = useState("dog");
-  const [breed, updateBreed] = useState("");
-  const [breeds, updateBreeds] = useState([]);
+  const [, AnimalDropdown] = UseDropdown("ANIMAL", "dog", ANIMALS);
+  const [breeds] = useState([]);
+  const [, BreedDropdown] = UseDropdown("BREED", "", breeds);
   return (
     <div>
       <h1>{location}</h1>
@@ -19,40 +20,9 @@ export default function Search() {
             onChange={(e) => updateState(e.target.value)}
           />
         </label>
+        <AnimalDropdown />
+        <BreedDropdown />
         <button>Search</button>
-        <label htmlFor="selectOption">
-          <select
-            name="select"
-            id="selectOption"
-            value={animals}
-            onChange={(e) => updateAnimal(e.target.value)}
-            onBlur={(e) => updateAnimal(e.target.value)}
-          >
-            <option value="">All</option>
-            {ANIMALS.map((animal) => (
-              <option key={animal} value={animal}>
-                {animal}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="breeds">
-          <select
-            name="breed"
-            id="breeds"
-            value={breed}
-            onChange={(e) => updateBreed(e.target.value)}
-            onBlur={(e) => updateBreed(e.target.value)}
-            disabled={!breeds.length}
-          >
-            <option>ALL</option>
-            {breeds.map((breed) => (
-              <option key={breed} value={breed}>
-                {breed}
-              </option>
-            ))}
-          </select>
-        </label>
       </form>
     </div>
   );
