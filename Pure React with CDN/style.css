@@ -5,7 +5,7 @@ ul {
 }
 li {
   font-size: 32px;
-  padding: 20px 10px;
+  padding: 10px 10px;
   color: #444;
 }
 li:nth-child(2n) {
@@ -19,11 +19,12 @@ body {
   align-items: center;
 }
 input {
-  padding: 30px 50px;
-  width: 300px;
+  padding: 20px 50px;
   border: 5px solid blueviolet;
   border-radius: 20px;
+  display: block;
 }
+
 label {
   font-size: 34px;
   font-weight: bold;
@@ -32,10 +33,14 @@ label {
 button {
   border: none;
   background-color: tomato;
-  padding: 30px 50px;
-  width: 150px;
-  border-radius: 20px;
+  padding: 15px 30px;
+  border-radius: 5px;
   color: white;
   font-size: 20px;
   text-align: center;
+}
+img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }

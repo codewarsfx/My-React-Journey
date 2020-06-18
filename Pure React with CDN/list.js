@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
 import UseDropdown from "../useDropdown";
+import Result from "./Result";
 
 export default function Search() {
-  const [location, updateState] = useState("seattle LA");
+  const [location, updateState] = useState("Seattle WA");
   const [animal, AnimalDropdown] = UseDropdown("ANIMAL", "dog", ANIMALS);
   const [breeds, updateBreeds] = useState([]);
   const [breed, BreedDropdown, updateBreed] = UseDropdown("BREED", "", breeds);
+  const [pets, updatePet] = useState([]);
+
+  // function in charge of getting pets data from api
+
+  async function getPets() {
+    const { animals } = await pet.animals({
+      breed,
+      location,
+      type: animal,
+    });
+    updatePet(animals);
+    console.log(pets);
+  }
+
+  //------------------------------------------------------
 
   //effect controls implicit updating of the breeds drop down menu when any given animal is clicked
   useEffect(() => {
@@ -23,7 +39,13 @@ export default function Search() {
   return (
     <div>
       <h1>{location}</h1>
-      <form action="#">
+      <form
+        action="#"
+        onSubmit={(e) => {
+          e.preventDefault();
+          getPets();
+        }}
+      >
         <label htmlFor="reactInput">
           Input
           <input
@@ -37,6 +59,7 @@ export default function Search() {
         <BreedDropdown />
         <button>Search</button>
       </form>
+      <Result pets={pets} />
     </div>
   );
 }
