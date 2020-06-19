@@ -2,6 +2,8 @@
 import React from "react";
 import ReactDom from "react-dom";
 import List from "./list";
+import { Router, Link } from "@reach/router";
+import Details from "./Details";
 
 const App = () => {
   // return React.createElement("ul", {}, [
@@ -10,9 +12,17 @@ const App = () => {
   //   React.createElement(list, { name: "Sarah", DOB: 1909 }),
   // ]);
   return (
-    <div>
-      <List />
-    </div>
+    <React.StrictMode>
+      <div>
+        <Link to="/">
+          <h1>Home</h1>
+        </Link>
+        <Router>
+          <List path="/" />
+          <Details path="/details/:id" />
+        </Router>
+      </div>
+    </React.StrictMode>
   );
 };
 
