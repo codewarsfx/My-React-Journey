@@ -5,9 +5,9 @@ import Result from "./Result";
 
 export default function Search() {
   const [location, updateState] = useState("Seattle WA");
-  const [animal, AnimalDropdown] = UseDropdown("ANIMAL", "dog", ANIMALS);
+  const [animal, AnimalDropdown] = UseDropdown("Animal", "Dog", ANIMALS);
   const [breeds, updateBreeds] = useState([]);
-  const [breed, BreedDropdown, updateBreed] = UseDropdown("BREED", "", breeds);
+  const [breed, BreedDropdown, updateBreed] = UseDropdown("Breed", "", breeds);
   const [pets, updatePet] = useState([]);
 
   // function in charge of getting pets data from api
@@ -38,7 +38,6 @@ export default function Search() {
 
   return (
     <div>
-      <h1>{location}</h1>
       <form
         action="#"
         onSubmit={(e) => {
@@ -46,15 +45,20 @@ export default function Search() {
           getPets();
         }}
       >
-        <label htmlFor="reactInput">
-          Input
-          <input
-            type="text"
-            value={location}
-            id="reactInput"
-            onChange={(e) => updateState(e.target.value)}
-          />
-        </label>
+        {" "}
+        <div className="dropDownElements">
+          <label htmlFor="reactInput">
+            Input
+            <input
+              autoFocus
+              placeholder="Location"
+              type="text"
+              value={location}
+              id="reactInput"
+              onChange={(e) => updateState(e.target.value)}
+            />
+          </label>
+        </div>
         <AnimalDropdown />
         <BreedDropdown />
         <button>Search</button>

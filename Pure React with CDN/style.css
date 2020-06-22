@@ -1,47 +1,77 @@
-ul {
-  list-style-type: none;
-  padding: 0;
-  max-width: 500px;
-}
-li {
-  font-size: 32px;
-  padding: 10px 10px;
-  color: #444;
-}
-li:nth-child(2n) {
-  background-color: #999;
-}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
 
 body {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Poppins", sans-serif;
+  color: #333;
 }
-input {
-  padding: 20px 50px;
-  border: 5px solid blueviolet;
-  border-radius: 20px;
-  display: block;
+input,
+select {
+  width: 50%;
+  padding: 10px 20px;
+  border: 1px solid rgb(177, 175, 185);
+  margin-left: 30px;
+  border-radius: 5px;
+  font-family: inherit;
 }
-
+form {
+  padding: 2em;
+  background-color: rgb(104, 99, 124);
+  border-radius: 5px;
+  box-shadow: 0.1px 0.1px 3px #333;
+}
+input:focus,
+select:focus {
+  outline-color: blueviolet;
+}
 label {
-  font-size: 34px;
-  font-weight: bold;
-  color: tomato;
+  text-transform: capitalize;
+  margin-right: 3em;
 }
 button {
   border: none;
   background-color: tomato;
-  padding: 15px 30px;
   border-radius: 5px;
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
+  padding: 10px 25px;
+  margin: 20px auto 0;
+  display: block;
+  font-family: inherit;
+  cursor: pointer;
 }
+button:focus {
+  outline: none;
+}
+button:active {
+  transform: scale(0.9);
+}
+
 img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
+}
+.dropDownElements {
+  padding: 20px;
+  display: flex;
+  background-color: rgb(214, 215, 218);
+  margin-top: 20px;
+  border-radius: 5px;
+}
+.results {
+  background-color: rgb(240, 240, 240);
+  padding: 1em;
+  text-align: center;
+  margin-top: 20px;
+  box-shadow: 0.1px 0.1px 1px #eee;
+}
+
+.results a {
+  color: rgb(104, 99, 124);
+  text-decoration: none;
 }

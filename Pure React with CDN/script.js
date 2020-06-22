@@ -15,7 +15,7 @@ const App = () => {
     <React.StrictMode>
       <div>
         <Link to="/">
-          <h1>Home</h1>
+          <h1>AdoptPets.com</h1>
         </Link>
         <Router>
           <List path="/" />
