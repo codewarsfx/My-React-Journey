@@ -13,9 +13,7 @@ const Pet = ({ name, media, id, gender, age }) => {
       <h3>
         {age} - {gender}
       </h3>
-      <a href={`https://adoptPet/details-${id}`}>
-        More Information on pet &#8594;
-      </a>
+      <a href={`/details/:${id}`}>More Information on pet &#8594;</a>
     </div>
   );
 };
