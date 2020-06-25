@@ -75,3 +75,27 @@ img {
   color: rgb(104, 99, 124);
   text-decoration: none;
 }
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  padding: 2em;
+  background-color: rgb(26, 133, 127);
+  box-shadow: 0.1 0.1 5px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  color: #fff;
+}
+.details img {
+  width: 300px;
+  height: 300px;
+}
+.details a {
+  color: rgb(7, 6, 66);
+}
+@media (max-width: 700px) {
+  .details {
+    padding: 1em;
+  }
+}
