@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import pet from "@frontendmasters/pet";
+import Carousel from "./carousel";
 
 class Details extends Component {
   constructor(props) {
@@ -21,16 +22,18 @@ class Details extends Component {
         status: animal.status,
         url: animal.url,
         photo: animal.photos[0].large,
+        media: animal.photos[0],
       });
     }, console.error);
   }
   render() {
-    let media = this.state.photo ? this.state.photo : "";
-    const { name, age, description, gender, status, url } = this.state;
+    let media = this.state.media ? this.state.media : "";
+    const { name, age, description, gender, status, url, photo } = this.state;
     if (this.state.loading) return <div className="loader"></div>;
     return (
       <div className="details">
-        <img src={media} alt="breed" className="details-image" />
+        <Carousel media={media} />
+        <img src={photo} alt="breed" className="details-image" />
         <h1>Hi meet {name}</h1>
         <h2>
           {age}-{gender}-{status}
