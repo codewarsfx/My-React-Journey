@@ -131,3 +131,25 @@ img {
     padding: 1em;
   }
 }
+
+#modal {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  /* height: 100vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+}
+
+#modal div {
+  background-color: #fff;
+}
+
+#modal:empty {
+  display: none;
+}

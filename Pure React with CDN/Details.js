@@ -2,17 +2,20 @@ import React, { Component } from "react";
 import pet from "@frontendmasters/pet";
 import Carousel from "./carousel";
 import ErrorBoundary from "./errorboundaries";
+import Modal from "./modal";
+import {navigate} from "@reach/router"
 
 class Details extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: true,
+      isModal:false
     };
   }
 
   componentDidMount() {
-    pet.animal(this.props.id.slice(1)).then(({ animal }) => {
+    pet.animal(this.props.id).then(({ animal }) => {
       console.log(animal);
       this.setState({
         loading: false,
@@ -23,10 +26,17 @@ class Details extends Component {
         status: animal.status,
         url: animal.url,
         photo: animal.photos[0].large,
-        media: animal.photos[0],
+        media: animal.photos,
       });
     }, console.error);
   }
+
+ handleModalClick = (e)=>{
+
+  this.setState({isModal:!this.state.isModal})
+
+}
+
   render() {
     let media = this.state.media ? this.state.media : "";
     const { name, age, description, gender, status, url, photo } = this.state;
@@ -40,8 +50,13 @@ class Details extends Component {
           {age}-{gender}-{status}
         </h2>
         <h3>About {name}</h3>
-        <p>
-          {description} <a href={url}>find out more</a>
+        <p style={{width:"60%",color:"#ddd",textAlign:"center"}}>
+            {description} 
+            <button onClick={this.handleModalClick}>Click to Adopt{name}</button>
+
+            { this.state.isModal?
+              <Modal>would you like to adopt {name} please click here to do so or you will have bad dreams lol <a href={url}>here</a> </Modal>:null
+            }
         </p>
       </div>
     );
@@ -55,3 +70,9 @@ export default function thrownewError(props) {
     </ErrorBoundary>
   );
 }
+
+
+
+
+
+

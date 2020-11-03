@@ -1,19 +1,20 @@
 import React from "react";
+import {Link} from "@reach/router"
 
 const Pet = ({ name, media, id, gender, age }) => {
-  let src = "https://source.unsplash.com/weekly?water/800x600";
-  if (media.length > 0) {
-    src = media[0].small;
+  let hero = "http://placecorgi.com/300/300";
+  if (media.length) {
+    hero = media[0].small;
   }
   return (
     <div className="results">
       <div className="thumbnail">
-        <h1>{name}</h1> <img src={src} alt="placeholderimage" />
+        <h1>{name}</h1> <img src={hero} alt="placeholderimage" />
       </div>
       <h3>
         {age} - {gender}
       </h3>
-      <a href={`/details/:${id}`}>More Information on pet &#8594;</a>
+      <Link to ={`/details/${id}`}>More Information on pet &#8594;</Link>
     </div>
   );
 };

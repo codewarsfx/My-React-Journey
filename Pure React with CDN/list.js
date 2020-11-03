@@ -19,7 +19,6 @@ export default function Search() {
       type: animal,
     });
     updatePet(animals);
-    console.log(pets);
   }
 
   //------------------------------------------------------
@@ -50,7 +49,6 @@ export default function Search() {
           <label htmlFor="reactInput">
             Input
             <input
-              autoFocus
               placeholder="Location"
               type="text"
               value={location}

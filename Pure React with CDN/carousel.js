@@ -10,19 +10,22 @@ class Carousel extends React.Component {
   }
 
   static getDerivedStateFromProps({ media }) {
-    let photos = ["http://placecorgi.com/600/600"];
-    if (media.length) {
+     let photos = ["http://placecorgi.com/600/600"];
+    console.log(media)
+    if (media.length>0) {
       photos = media.map(({ large }) => large);
+      console.log(photos)
     }
+    console.log(photos)
     return { photos };
   }
   //eslint-disable-next-line
   handleClick = (event) => {
-    console.log(this);
     this.setState({
       active: parseInt(event.target.dataset.index),
     });
   };
+  
   render() {
     const { photos, active } = this.state;
 
