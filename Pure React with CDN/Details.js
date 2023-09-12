@@ -28,7 +28,7 @@ class Details extends Component {
         photo: animal.photos[0].large,
         media: animal.photos,
       });
-    }, console.error);
+    }, console.error)
   }
 
  handleModalClick = (e)=>{
